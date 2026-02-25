@@ -1,25 +1,4 @@
-import { useState } from "react";
-import ReactCardFlip from "react-card-flip";
-import comingsoon from "../../assets/technozarre2k25/events/comingsoon.png"
-import etreasure_bg from "../../assets/technozarre2k25/events/etreasure_bg.jpg"
-import scifi_bg from "../../assets/technozarre2k25/events/scifi_bg.png"
-import python_bg from "../../assets/technozarre2k25/events/python_bg.png"
-import sqlize_bg from "../../assets/technozarre2k25/events/sqlize_bg.png"
-import lucky_bg from "../../assets/technozarre2k25/events/lucky_bg.png"
-import zero_bg from "../../assets/technozarre2k25/events/zero_bg.png"
-import code_bg from "../../assets/technozarre2k25/events/code_bg.png"
-import etreasure from "../../assets/technozarre2k25/events/etreasure.png"
-import scifi from "../../assets/technozarre2k25/events/scifi.png"
-import python from "../../assets/technozarre2k25/events/python.png"
-import sqlize from "../../assets/technozarre2k25/events/sqlize.png"
-import lucky from "../../assets/technozarre2k25/events/lucky.png"
-import zero from "../../assets/technozarre2k25/events/zero.png"
-import code from "../../assets/technozarre2k25/events/code.png"
-import bidtocode from "../../assets/technozarre2k25/events/bidtocode.jpeg"
-import sih_bg from "../../assets/technozarre2k25/workshops/sih_bg.png"
 
-import { Button } from "react-bootstrap";
-import React from "react";
 import EventCard from "./EventCard";
 
 // Later, you can import your real images here!

@@ -1,12 +1,4 @@
-import { useState } from "react";
-import ReactCardFlip from "react-card-flip";
-import { Button } from "react-bootstrap";
-import bgmi_bg from "../../assets/technozarre2k25/events/bgmi_bg.png"
-import valo_bg from "../../assets/technozarre2k25/events/valo_bg.png"
-import fifa_bg from "../../assets/technozarre2k25/events/fifa_bg.png"
-import bgmi from "../../assets/technozarre2k25/events/bgmi.png"
-import valo from "../../assets/technozarre2k25/events/valo.png"
-import fifa from "../../assets/technozarre2k25/events/fifa.png"
+
 
 import EventCard from "./EventCard";
 

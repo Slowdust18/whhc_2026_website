@@ -1,21 +1,4 @@
-import { useState } from "react";
-import ReactCardFlip from "react-card-flip";
-import cine_connect_bg from "../../assets/technozarre2k25/events/cine_connect_bg.png"
-import ipl_bg from "../../assets/technozarre2k25/events/ipl_bg.png"
-import whisper_bg from "../../assets/technozarre2k25/events/whisper_bg.png"
-import pickleball_bg from "../../assets/technozarre2k25/events/pickleball_bg.png"
-import picture_bg from "../../assets/technozarre2k25/events/picture_bg.png"
-import treasure_bg from "../../assets/technozarre2k25/events/treasure_bg.png"
-import scribble_bg from "../../assets/technozarre2k25/events/scribble_bg.png"
-import ipl from "../../assets/technozarre2k25/events/ipl.png"
-import whisper from "../../assets/technozarre2k25/events/whisper.png"
-import pickleball from "../../assets/technozarre2k25/events/pickleball.png"
-import picture from "../../assets/technozarre2k25/events/picture.png"
-import treasure from "../../assets/technozarre2k25/events/treasure.png"
-import scribble from "../../assets/technozarre2k25/events/scribble.png"
-import cine_connect from "../../assets/technozarre2k25/events/cine_connect.png"
 
-import { Button } from "react-bootstrap";
 
 import EventCard from "./EventCard";
 
