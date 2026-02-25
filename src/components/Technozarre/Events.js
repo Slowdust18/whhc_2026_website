@@ -1,7 +1,3 @@
-import { useState } from "react";
-import ReactCardFlip from "react-card-flip";
-import comingsoon from "../../assets/technozarre2k25/events/comingsoon.png"
-import staytuned from "../../assets/technozarre2k25/events/staytuned.png"
 import TechnicalEvents from "./TechnicalEvents";
 import NontechEvents from "./NontechEvents";
 import GamingEvents from "./GamingEvents";
