@@ -112,73 +112,64 @@ const Technozarre = () => {
               <Navigation />
             </div>
             
-            {/* Cinematic Hero Section */}
+            {/* Pure Text Hero Section */}
             <motion.div 
               variants={heroContainer}
               initial="hidden"
               animate="show"
               style={{
-                minHeight: '65vh',
+                width: '100%',
+                minHeight: '80vh',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
-                background: 'radial-gradient(circle at center, rgba(60,0,0,0.15) 0%, #050505 60%)',
-                borderBottom: '1px solid rgba(255, 0, 0, 0.1)',
-                padding: '20px',
-                position: 'relative'
+                backgroundColor: '#050505',
+                paddingTop: '120px', // 🛑 Keeps it safely BELOW your navbar
+                paddingBottom: '40px',
+                overflowX: 'hidden' 
               }}
             >
-              {/* Ambient Background Glow */}
-              <div style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                width: '50vw',
-                height: '20vw',
-                background: 'rgba(255, 0, 0, 0.05)',
-                filter: 'blur(100px)',
-                zIndex: 0,
-                pointerEvents: 'none'
-              }} />
-
-              {/* Premium Gradient Title */}
+              
+              {/* 1. Unbreakable TECHNOZARRE Title */}
               <motion.h1 
                 variants={heroItem}
                 style={{
                   fontFamily: "'Akira', sans-serif",
-                  fontSize: 'clamp(3rem, 8vw, 8rem)',
+                  fontSize: 'clamp(1.5rem, 7vw, 6rem)', // 🛑 Math fix: Shrinks enough for mobile, massive on desktop
+                  color: 'rgb(255, 50, 50)',
+                  textAlign: 'center',
                   margin: '0',
-                  background: 'linear-gradient(180deg, #ff4d4d 0%, #b30000 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  textShadow: '0px 10px 30px rgba(255, 0, 0, 0.3)',
-                  zIndex: 1,
-                  lineHeight: '1'
+                  width: '100%',
+                  whiteSpace: 'nowrap', // 🛑 Forbids the text from breaking or wrapping
+                  textShadow: '0px 0px 15px rgba(255, 0, 0, 0.6)'
                 }}
               >
                 TECHNOZARRE
               </motion.h1>
 
-              {/* Hollow "Outline" Subtitle */}
+              {/* 2. Responsive 2026 Outline */}
               <motion.h2 
                 variants={heroItem}
                 style={{
                   fontFamily: "'Akira', sans-serif",
-                  fontSize: 'clamp(2px, 2vw, 10px)',
-                  margin: '-10px 0 40px 0',
+                  fontSize: 'clamp(1.2rem, 5vw, 4rem)', 
                   color: 'transparent',
-                  WebkitTextStroke: '2px rgba(255, 50, 50, 0.8)',
-                  letterSpacing: '10px',
-                  zIndex: 1
+                  WebkitTextStroke: '2px rgb(255, 50, 50)',
+                  letterSpacing: 'clamp(2px, 1vw, 10px)', // Kills the massive spacing on phones
+                  textAlign: 'center',
+                  margin: '10px 0 40px 0'
                 }}
               >
                 2026
               </motion.h2>
 
-              {/* The Timer */}
-              <motion.div variants={heroItem} style={{ zIndex: 1 }}>
+              {/* 3. The Timer (Wrapped in our nuke class) */}
+              <motion.div 
+                variants={heroItem} 
+                className="mobile-timer-nuke"
+                style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
+              >
                 <Timer />
               </motion.div>
 

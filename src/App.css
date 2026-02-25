@@ -16,6 +16,23 @@ html, body {
   overscroll-behavior: none;
 }
 
+
+/* =========================================
+   MOBILE OVERRIDES (Screens under 768px)
+   ========================================= */
+@media (max-width: 768px) {
+  
+  .timer-mobile-wrapper {
+    min-width: 800px; /* 🛑 Tricks the timer into desktop mode so it stays in one row */
+    transform: scale(0.40); /* 🛑 Shrinks the giant row down to fit the phone screen */
+    transform-origin: top center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: -120px; /* Pulls up the empty space left behind by scaling */
+  }
+
+}
+
 .App {
   text-align: center;
 }
@@ -507,6 +524,11 @@ html, body {
 .custom-dropdown > .dropdown-menu {
   background:transparent;
 }
+
+.dropdown-menu {
+  background-color: black !important;
+  border: 1px solid rgba(255, 0, 0, 0.3) !important; /* Adds a subtle red hacker border */
+}
 .custom-dropdown > btn-default {
   background:transparent;
 }
@@ -540,4 +562,26 @@ html, body {
   src: url('./assets/fonts/Akira.otf') format('opentype'); /* Change to .ttf and format('truetype') if you downloaded a TTF */
   font-weight: normal;
   font-style: normal;
+}
+
+/* Make the text inside the dropdown readable */
+.dropdown-item {
+  color: #cccccc !important;
+}
+
+/* Add a slick red hover effect for dropdown items */
+.dropdown-item:hover {
+  background-color: rgba(255, 0, 0, 0.1) !important; 
+  color: red !important;
+}
+
+/* 2. Force the mobile hamburger menu to be solid black when opened */
+@media (max-width: 991px) {
+  #navbar-nav {
+    background-color: black !important;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 0, 0, 0.3); /* Matches the dropdown border */
+  }
 }

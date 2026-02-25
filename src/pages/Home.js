@@ -1,37 +1,31 @@
 import React, { useState, useEffect } from "react";
 import Navigation from '../components/Navigation'
-// import { Button } from "react-bootstrap";
-// import video from '../assets/home-video.mp4';
 import WhatWeDoCard from "../components/Home/WhatWeDoCard";
 import FlagShipEvent from "../components/Home/FlagshipEvent";
 import Footer from "../components/Home/Footer";
 import MatrixRain from "../components/Home/MatrixRain";
 import { motion } from "framer-motion";
+
 const Home = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
 
-  // This hook listens to the scroll position
   useEffect(() => {
     const handleScroll = () => {
-      // If the user scrolls down more than 50 pixels, show the navbar
       if (window.scrollY > 50) {
         setIsNavVisible(true);
       } else {
-        // Hide it if they are at the very top
         setIsNavVisible(false);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
-    
-    // Clean up the event listener when the component unmounts
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <div className="home">
+    <div className="home" style={{ width: '100%', overflowX: 'hidden' }}>
       
-      {/* The Animated Navbar (Hover triggers removed) */}
+      {/* The Animated Navbar */}
       <motion.div
         initial={{ y: '-100%', opacity: 0 }}
         animate={{ 
@@ -45,18 +39,17 @@ const Home = () => {
           left: 0,
           width: '100%',
           zIndex: 100,
-          backgroundColor: 'rgba(0, 0, 0, 0.85)', // Dark translucent background
-          backdropFilter: 'blur(5px)', // Blurs the content behind the navbar
-          borderBottom: '1px solid rgba(255, 0, 0, 0.3)' // Subtle red bottom border
+          backgroundColor: 'rgba(0, 0, 0, 0.85)', 
+          backdropFilter: 'blur(5px)', 
+          borderBottom: '1px solid rgba(255, 0, 0, 0.3)' 
         }}
       >
         <Navigation />
       </motion.div>
 
-      {/* 3. The Matrix Rain Container - Now sits at the absolute top */}
-      <div className="video-container" style={{ position: 'relative', overflow: 'hidden', backgroundColor: 'black' }}>
+      {/* 3. The Matrix Rain Container */}
+      <div className="video-container" style={{ position: 'relative', overflow: 'hidden', backgroundColor: 'black', minHeight: '100vh', width: '100%' }}>
         
-        {/* The Rain Background */}
         <MatrixRain />
         
         {/* The Text Floating Over It */}
@@ -68,7 +61,8 @@ const Home = () => {
           zIndex: 10, 
           textAlign: 'center', 
           width: '100%',
-          pointerEvents: 'none' 
+          pointerEvents: 'none',
+          padding: '0 20px' // Added padding so it doesn't touch the screen edges on mobile
         }}>
           {/* Glitching, Massive WHHC Title */}
           <motion.h1 
@@ -86,7 +80,7 @@ const Home = () => {
             }}
             style={{ 
               color: 'white', 
-              fontSize: 'clamp(6rem, 15vw, 12rem)', 
+              fontSize: 'clamp(3.5rem, 15vw, 12rem)', // 🛑 FIX: Lowered minimum to 3.5rem so it fits on tiny phones
               fontFamily: "'Akira', sans-serif",
               fontWeight: '900', 
               textShadow: '0px 0px 30px rgba(255, 0, 0, 0.8)',
@@ -97,17 +91,19 @@ const Home = () => {
             WHHC
           </motion.h1>
 
-          {/* Subtitle fading in right after the glitch finishes */}
+          {/* Subtitle */}
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
             style={{ 
               color: 'rgb(255, 50, 50)', 
-              fontSize: 'clamp(1rem, 2vw, 1.5rem)', 
+              fontSize: 'clamp(0.8rem, 3vw, 1.5rem)', // 🛑 FIX: Scaled for mobile
               fontWeight: 'bold', 
-              letterSpacing: '5px',
-              marginTop: '10px'
+              letterSpacing: 'clamp(2px, 1vw, 5px)', // 🛑 FIX: Shrinks letter spacing on phones
+              marginTop: '10px',
+              margin: '10px auto 0 auto',
+              maxWidth: '800px'
             }}
           >
             SECURING THE CYBER WORLD ONE BYTE AT A TIME
@@ -115,110 +111,85 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="home-background">
-        <div style={{ textAlign: 'center', marginLeft: '10%', marginRight: '10%'}}>
+      {/* Main Content Sections */}
+      <div className="home-background" style={{ paddingBottom: '40px', backgroundColor: 'black' }}>
+      
+        
+        {/* About The Department */}
+        {/* 🛑 FIX: Replaced margin % with responsive clamp padding so text doesn't squish! */}
+        {/* 🛑 FIX: Changed marginTop to paddingTop to kill the white gap! */}
+        <div style={{ textAlign: 'center', padding: '0 clamp(20px, 8vw, 10%)', paddingTop: '60px' }}>
           <div>
-            <br />
-            <br />
-            <text style={{color: 'white', fontSize: '45px', fontWeight: '700'}}>About The Department</text>
-            <br />
-            <br />
-          <p className="home-paragraphtext">Our club is based out of the <text style={{color: 'rgb(255, 50, 50)'}}>DCSE, SRM Vadapalani, Chennai</text>. Our department boasts a renowned faculty known for their 
-          <text style={{color: 'rgb(255, 50, 50)'}}> expertise in a wide range of fields</text>. A substantial portion of our esteemed faculty members bring extensive experience,
-          with many having dedicated over a decade to their respective fields. Our research initiatives revolve around crucial
-          domains such as <text style={{color: 'rgb(255, 50, 50)'}}>network security, cryptography, wireless sensor networks, data mining, and cloud computing</text>. This steadfast
-          dedication to research is exemplified by the productive contributions of both our faculty and students, as they continually
-          showcase and publish their work at esteemed national and international conferences.
-          </p>
-          </div>
-        </div>
-        <div>
-          <br />
-          <br />
-          <hr
-            style={{
-            borderTop: '1px solid rgba(255, 0, 0, 0.4)', /* Changed from lightgrey to a dark red */
-            boxShadow: '0px 0px 10px rgba(255, 0, 0, 0.5)', /* Adds a slight red neon glow */
-            width: '5%', 
-            margin: '0 auto', 
-            }}
-            />
-        </div>
-        <div style={{ textAlign: 'center', marginLeft: '5%', marginRight: '5%'}}>
-            <br />
-            <br />
-            <text style={{color: 'white', fontSize: '45px', fontWeight: '700'}}>About Us</text>
-            <br />
-            <br />
-          <div className="home-aboutustext">
-            <div style={{paddingRight: '2%', paddingLeft: '2%',paddingTop: '2%', paddingBottom: '2%'}}>
-            <p className="home-paragraphtext">
-            <text style={{color: 'rgb(255, 50, 50)'}}>White Hat Hackers Club</text> is a student-driven technical organization headquartered at  
-            <text style={{color: 'rgb(255, 50, 50)'}}> SRMIST, Vadapalani Campus</text>. The club’s primary objective is to inspire students to delve into the realm of 
-            <text style={{color: 'rgb(255, 50, 50)'}}> cybersecurity and ethical hacking</text>, equipping them with the essential skills for success in this field. We
-            welcome students from diverse backgrounds and skill levels, ranging from beginners to advanced, to refine
-            their abilities. Our main goal is to establish a space where like-minded individuals can initiate discussions
-            about ethical hacking and cybersecurity, leveraging their knowledge to drive meaningful progress.
-            </p>
-            </div>
-          </div>
-        </div>
-        <div>
-          <br />
-          <br />
-          <hr
-            style={{
-            borderTop: '1px solid rgba(255, 0, 0, 0.4)',
-            boxShadow: '0px 0px 10px rgba(255, 0, 0, 0.5)',
-            width: '5%', 
-            margin: '0 auto', 
-            }}
-            />
-        </div>
-        <div>
-          <div style={{ textAlign: 'center', marginLeft: '5%', marginRight: '5%'}}>
-            <br />
-            <br />
-            <text style={{color: 'white', fontSize: '45px', fontWeight: '700'}} >What we do</text>
-            <br />
-            <br />
-            <p className="home-paragraphtext" style={{fontSize: '23px', textAlign: 'center'}}>
-            Through our lineup of workshops and events, along with our online publications of articles on our website and social media,
-            we aim to impart knowledge about the applications, advancements, and future prospects in the world of ethical hacking and cybersecurity.
+            <h2 style={{color: 'white', fontSize: 'clamp(2rem, 5vw, 45px)', fontWeight: '700', margin: '0 0 20px 0'}}>
+              About The Department
+            </h2>
+            
+            <p className="home-paragraphtext" style={{ fontSize: 'clamp(1rem, 3vw, 1.2rem)', lineHeight: '1.8' }}>
+              Our club is based out of the <span style={{color: 'rgb(255, 50, 50)'}}>DCSE, SRM Vadapalani, Chennai</span>. Our department boasts a renowned faculty known for their 
+              <span style={{color: 'rgb(255, 50, 50)'}}> expertise in a wide range of fields</span>. A substantial portion of our esteemed faculty members bring extensive experience,
+              with many having dedicated over a decade to their respective fields. Our research initiatives revolve around crucial
+              domains such as <span style={{color: 'rgb(255, 50, 50)'}}>network security, cryptography, wireless sensor networks, data mining, and cloud computing</span>. This steadfast
+              dedication to research is exemplified by the productive contributions of both our faculty and students, as they continually
+              showcase and publish their work at esteemed national and international conferences.
             </p>
           </div>
-          <div style={{ justifyContent: 'center', marginLeft: '10%', marginRight: '10%', marginTop: '50px'}}>
+        </div>
+
+        {/* Divider */}
+        <div style={{ margin: '40px 0' }}>
+          <hr style={{ borderTop: '1px solid rgba(255, 0, 0, 0.4)', boxShadow: '0px 0px 10px rgba(255, 0, 0, 0.5)', width: '50px', margin: '0 auto' }} />
+        </div>
+
+        {/* About Us */}
+        <div style={{ textAlign: 'center', padding: '0 clamp(20px, 8vw, 10%)' }}>
+            <h2 style={{color: 'white', fontSize: 'clamp(2rem, 5vw, 45px)', fontWeight: '700', margin: '0 0 20px 0'}}>
+              About Us
+            </h2>
+            
+            <p className="home-paragraphtext" style={{ fontSize: 'clamp(1rem, 3vw, 1.2rem)', lineHeight: '1.8' }}>
+              <span style={{color: 'rgb(255, 50, 50)'}}>White Hat Hackers Club</span> is a student-driven technical organization headquartered at  
+              <span style={{color: 'rgb(255, 50, 50)'}}> SRMIST, Vadapalani Campus</span>. The club’s primary objective is to inspire students to delve into the realm of 
+              <span style={{color: 'rgb(255, 50, 50)'}}> cybersecurity and ethical hacking</span>, equipping them with the essential skills for success in this field. We
+              welcome students from diverse backgrounds and skill levels, ranging from beginners to advanced, to refine
+              their abilities. Our main goal is to establish a space where like-minded individuals can initiate discussions
+              about ethical hacking and cybersecurity, leveraging their knowledge to drive meaningful progress.
+            </p>
+        </div>
+
+        {/* Divider */}
+        <div style={{ margin: '40px 0' }}>
+          <hr style={{ borderTop: '1px solid rgba(255, 0, 0, 0.4)', boxShadow: '0px 0px 10px rgba(255, 0, 0, 0.5)', width: '50px', margin: '0 auto' }} />
+        </div>
+
+        {/* What We Do */}
+        <div>
+          <div style={{ textAlign: 'center', padding: '0 clamp(20px, 8vw, 10%)' }}>
+            <h2 style={{color: 'white', fontSize: 'clamp(2rem, 5vw, 45px)', fontWeight: '700', margin: '0 0 20px 0'}}>
+              What we do
+            </h2>
+            
+            <p className="home-paragraphtext" style={{ fontSize: 'clamp(1rem, 3vw, 23px)', textAlign: 'center', lineHeight: '1.8' }}>
+              Through our lineup of workshops and events, along with our online publications of articles on our website and social media,
+              we aim to impart knowledge about the applications, advancements, and future prospects in the world of ethical hacking and cybersecurity.
+            </p>
+          </div>
+          
+          <div style={{ display: 'flex', justifyContent: 'center', padding: '0 20px', marginTop: '50px' }}>
             <WhatWeDoCard />
           </div>
         </div>
+
+        {/* Divider */}
+        <div style={{ margin: '60px 0' }}>
+          <hr style={{ borderTop: '1px solid rgba(255, 0, 0, 0.4)', boxShadow: '0px 0px 10px rgba(255, 0, 0, 0.5)', width: '50px', margin: '0 auto' }} />
+        </div>
+
+        {/* Flagship Event */}
+        <div style={{ textAlign: 'center', padding: '0 clamp(10px, 5vw, 10%)' }}>
+          <FlagShipEvent />
+        </div>
+
         <div>
-          <br />
-          <br />
-          <hr
-            style={{
-            borderTop: '1px solid rgba(255, 0, 0, 0.4)',
-            boxShadow: '0px 0px 10px rgba(255, 0, 0, 0.5)',
-            width: '5%', 
-            margin: '0 auto', 
-            }}
-            />
-        </div>
-        <div>
-          <br />
-          <br />
-          <br />
-          <div style={{ textAlign: 'center', marginLeft: '5%', marginRight: '10%'}}>
-            <FlagShipEvent />
-          </div>
-        </div>
-        <div style={{ textAlign: 'center'}}>
-          <div className="home-team">
-            <div style={{textAlign: "center",  marginLeft: '30%', marginRight: '30%',paddingTop: '6%'}}>
-              {/* Keeping this commented out as it was in your original code */}
-            </div>
-          </div>
-        </div>
-        <div >
           <Footer />
         </div>
       </div>
