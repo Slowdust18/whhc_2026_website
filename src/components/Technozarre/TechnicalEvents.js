@@ -118,7 +118,7 @@ const TechnicalEvents = () => {
     venue: "APJ Lab",
     category: "Technical",
     description: [
-      "Competitive Programming is a coding event where participants solve programming problems within a given time limit. You will be given different questions, and you need to write correct and efficient code to solve them.",,
+      "Competitive Programming is a coding event where participants solve programming problems within a given time limit. You will be given different questions, and you need to write correct and efficient code to solve them.",
       "Coordinators:",
       "A. Braxton Elmer 9884493264",
       "Athithya S A 8838101969"
@@ -128,24 +128,6 @@ const TechnicalEvents = () => {
     frontBg: tz_tech_6,
     backBg: null
   }
-
-    /* HOW TO ADD A REAL EVENT LATER:
-      Just change `isComingSoon: false` and fill in the blanks!
-
-      { 
-        id: 7, 
-        isComingSoon: false, 
-        title: "Sci-Fi Debate",
-        frontBg: scifi,           // The imported front image
-        backBg: scifi_bg,         // The imported back image
-        themeColor: "#dde67b",    // Controls the glowing button border!
-        description: [
-          "🚀🗣️ Ready to journey into the future? Join us for the SCI-FI DEBATE! 🛸✨",
-          "Bring your best arguments, futuristic flair, and a dash of imagination!"
-        ],
-        registerLink: "https://forms.gle/..."
-      }
-    */
   ];
 
   return (
