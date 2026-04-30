@@ -1,7 +1,4 @@
 
-import { Card } from "react-bootstrap";
-import {CardGroup} from "react-bootstrap";
-
 
 const WhatWeDoCard = () => {
   return (
